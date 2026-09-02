@@ -30,36 +30,31 @@
 ### Prerequisites
 
 - **Python 3.10+** installed — [Download Python](https://www.python.org/downloads/)
-- **Git** installed — [Download Git](https://git-scm.com/downloads)
 
-### Step 1: Clone the Repository
+### Step 1: Download the Code
 
-```bash
-git clone https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
-cd YOUR_REPO_NAME
-```
+1. Open the repository on GitHub: [Netflix-Customer-Churn-Analytics](https://github.com/Zeyadmohamed291/Netflix-Customer-Churn-Analytics)
+2. Click the green **Code** button and select **Download ZIP**.
+3. Extract the ZIP file anywhere on your computer.
+4. Open the extracted folder.
 
-### Step 2: Create a Virtual Environment
+### Step 2: Open Terminal & Install Dependencies
+
+Open your command prompt or terminal inside the extracted folder.
 
 **Windows:**
-```bash
-python -m venv venv
-venv\Scripts\activate
-```
-
-**macOS / Linux:**
-```bash
-python3 -m venv venv
-source venv/bin/activate
-```
-
-### Step 3: Install Dependencies
-
+Click the address bar in the folder, type `cmd`, and press Enter. Then run:
 ```bash
 pip install -r requirements.txt
 ```
 
-### Step 4: Run the Dashboard
+**macOS / Linux:**
+Right-click the folder and select "New Terminal at Folder". Then run:
+```bash
+pip3 install -r requirements.txt
+```
+
+### Step 3: Run the Dashboard
 
 ```bash
 python -m streamlit run streamlit_app.py
