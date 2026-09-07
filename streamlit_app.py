@@ -1425,7 +1425,10 @@ with tab_customers:
     reg_series = df.groupby("region")["customer_id"].count().sort_values(ascending=False)
     dev_series = df.groupby("device")["customer_id"].count().sort_values(ascending=False)
     genre_series = df.groupby("favorite_genre")["customer_id"].count().sort_values(ascending=False)
-    plan_watch = df.groupby("subscription_type")["avg_watch_time_per_day"].mean().loc[["Basic", "Standard", "Premium"]]
+    sub_order = [p for p in ["Basic", "Standard", "Premium"] if p in df["subscription_type"].values]
+    plan_watch = df.groupby("subscription_type")["avg_watch_time_per_day"].mean()
+    if sub_order:
+        plan_watch = plan_watch.reindex([p for p in sub_order if p in plan_watch.index])
 
     # 4 Executive KPI Cards in Netflix Red
     k1, k2, k3, k4 = st.columns(4)
@@ -1543,7 +1546,10 @@ with tab_churn:
         unsafe_allow_html=True,
     )
 
-    sub_churn = df.groupby("subscription_type")["churned"].mean().mul(100).loc[["Basic", "Standard", "Premium"]]
+    sub_churn_order = [p for p in ["Basic", "Standard", "Premium"] if p in df["subscription_type"].values]
+    sub_churn = df.groupby("subscription_type")["churned"].mean().mul(100)
+    if sub_churn_order:
+        sub_churn = sub_churn.reindex([p for p in sub_churn_order if p in sub_churn.index])
     reg_churn = df.groupby("region")["churned"].mean().mul(100).sort_values(ascending=False)
     dev_churn = df.groupby("device")["churned"].mean().mul(100).sort_values(ascending=False)
     pay_churn = df.groupby("payment_method")["churned"].mean().mul(100).sort_values(ascending=False)
