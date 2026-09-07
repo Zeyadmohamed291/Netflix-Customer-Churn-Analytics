@@ -1,9 +1,6 @@
 # 🎬 Netflix Customer Churn & Engagement Dataset
 
-[![License: CC0-1.0](https://img.shields.io/badge/License-CC0_1.0-lightgrey.svg)](http://creativecommons.org/publicdomain/zero/1.0/)
-[![Kaggle Ready](https://img.shields.io/badge/Kaggle-Dataset_Card-20BEFF?logo=kaggle&logoColor=white)](https://www.kaggle.com)
-[![Records: 5,000](https://img.shields.io/badge/Records-5%2C000-E50914)](file:///netflix_customer_churn.csv)
-[![Features: 14](https://img.shields.io/badge/Features-14-black)](file:///netflix_customer_churn.csv)
+[![License: CC0-1.0](https://img.shields.io/badge/License-CC0_1.0-lightgrey.svg)](http://creativecommons.org/publicdomain/zero/1.0/) [![Kaggle Ready](https://img.shields.io/badge/Kaggle-Dataset_Card-20BEFF?logo=kaggle&logoColor=white)](https://www.kaggle.com) ![Records: 5,000](https://img.shields.io/badge/Records-5%2C000-E50914) ![Features: 14](https://img.shields.io/badge/Features-14-black)
 
 A comprehensive, curated dataset analyzing customer churn dynamics, behavioral engagement, subscription economics, and demographics for **5,000 Netflix subscribers** across 6 global continents.
 
