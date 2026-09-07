@@ -3,7 +3,13 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 import pandas as pd
 
-from analysis import clean_data, create_question_figure, run_question
+from analysis import (
+    clean_data,
+    create_question_figure,
+    main_result_text,
+    result_table,
+    run_question,
+)
 
 
 PROJECT_DIR = Path(__file__).resolve().parent
@@ -18,8 +24,14 @@ assert run_question(df, 30).index[0] == "Premium"
 
 for question_number in range(1, 31):
     result = run_question(df, question_number)
+    table = result_table(result, question_number)
+    text = main_result_text(result, question_number)
     figure = create_question_figure(df, question_number, result)
+
+    assert isinstance(table, pd.DataFrame) and not table.empty
+    assert isinstance(text, str) and len(text) > 0
     assert figure is not None
     plt.close(figure)
 
-print("All 30 analyses passed.")
+print("All 30 analyses, tables, texts, and visualizations passed successfully!")
+

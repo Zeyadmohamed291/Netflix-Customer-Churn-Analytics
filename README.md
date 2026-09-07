@@ -4,10 +4,12 @@
 
 ![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Streamlit](https://img.shields.io/badge/Streamlit-1.62-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)
+![Plotly](https://img.shields.io/badge/Plotly-7.0-3F4F75?style=for-the-badge&logo=plotly&logoColor=white)
 ![Pandas](https://img.shields.io/badge/Pandas-2.2-150458?style=for-the-badge&logo=pandas&logoColor=white)
 ![Matplotlib](https://img.shields.io/badge/Matplotlib-3.10-11557C?style=for-the-badge&logo=python&logoColor=white)
+![Kaggle](https://img.shields.io/badge/Kaggle-Ready-20BEFF?style=for-the-badge&logo=kaggle&logoColor=white)
 
-**A professional, dark-themed interactive dashboard for exploring Netflix customer churn data — featuring 30 business questions with full code, results, and visualizations.**
+**A professional, dark-themed interactive dashboard and analytical suite for exploring Netflix customer churn data — featuring 30 business questions with full code, results, Plotly visualizations, and a publication-ready Kaggle dataset card.**
 
 </div>
 
@@ -16,12 +18,12 @@
 ## 📸 Dashboard Preview
 
 | Feature | Description |
-|---------|-------------|
-| 🏠 **Executive Overview** | Headline KPIs, customer status donut chart, largest market & plan |
-| 👥 **Customer Analytics** | Distribution by region, device, subscription type & favorite genre |
-| 📉 **Churn Analysis** | Churn rates by subscription, region, device, payment & engagement |
-| ❓ **30 Business Questions** | Each with objective, business value, Python code, result table & chart |
-| 🗃️ **Data Explorer** | Filtered records, statistics, data quality metrics & CSV export |
+|---|---|
+| 🏠 **Power BI Style Executive Overview** | Headline KPIs (Total/Active/Churned), Choropleth world map, Device breakdown, Genre distribution, Retention donut, Inactivity churn curve |
+| 👥 **Customer Analytics** | Audience segmentation by region, hardware device, subscription tiers & daily watch duration |
+| 📉 **Churn Intelligence** | Subscriber attrition velocity across subscription tiers, geographic markets, payment gateways, and usage metrics |
+| ❓ **30 Business Questions** | Each with business objective, strategic value, executable Python code, result table & Matplotlib chart |
+| 🗃️ **Data Explorer** | Filtered records viewer, descriptive statistics, data quality indicators & segment CSV export |
 
 ---
 
@@ -73,15 +75,15 @@ http://localhost:8501
 All filters are optional — leave empty to include all values:
 
 | Filter | Options |
-|--------|---------|
+|---|---|
 | 🌍 Region | Africa, Asia, Europe, North America, Oceania, South America |
 | 📦 Subscription Type | Basic, Standard, Premium |
-| 📱 Device | Desktop, Laptop, Phone, Smart TV, Tablet |
+| 📱 Device | Desktop, Laptop, Mobile, TV, Tablet |
 | 👤 Gender | Female, Male, Other |
 | 🎭 Favorite Genre | Action, Comedy, Drama, Horror, Romance, Sci-Fi, Thriller |
 | 📊 Customer Status | All / Active / Churned |
 
-You can also **upload your own CSV** with the same column structure.
+You can also **upload your own CSV** with the same column structure directly from the sidebar.
 
 ---
 
@@ -90,13 +92,17 @@ You can also **upload your own CSV** with the same column structure.
 ```
 streamlit_netflix_dashboard/
 ├── .streamlit/
-│   └── config.toml          # Streamlit theme configuration
-├── analysis.py               # 30 business questions logic & chart generation
-├── netflix_customer_churn.csv # Dataset (5,000 customers)
-├── streamlit_app.py           # Main dashboard application
-├── requirements.txt           # Python dependencies
-├── test_analysis.py           # Validation script for all 30 analyses
-├── Netflix_done_.ipynb        # Original Jupyter Notebook
+│   └── config.toml          # Streamlit theme configuration (Dark Mode #07090E)
+├── analysis.py               # 30 business questions logic & figure generation
+├── DATASET_CARD.md           # Publication-ready Kaggle Dataset Card & Data Dictionary
+├── dataset-metadata.json     # Kaggle API metadata descriptor
+├── netflix_customer_churn.csv # Curated dataset (5,000 subscriber records)
+├── netflix_logo.png          # Netflix brand header asset
+├── netflix_n_transparent.png # Netflix icon asset
+├── Netflix_done_.ipynb       # Original exploratory data analysis notebook
+├── requirements.txt          # Python pinned dependencies
+├── streamlit_app.py          # Executive multi-tab Streamlit application
+├── test_analysis.py          # Validation test suite for all 30 analyses
 ├── .gitignore
 └── README.md
 ```
@@ -106,7 +112,7 @@ streamlit_netflix_dashboard/
 ## 📊 The 30 Business Questions
 
 | # | Question |
-|---|----------|
+|---|---|
 | 1 | What is the average age of Netflix customers? |
 | 2 | What is the average number of watch hours? |
 | 3 | Who are the top 10 customers with the highest watch hours? |
@@ -142,28 +148,48 @@ streamlit_netflix_dashboard/
 
 ## 🧪 Validate All 30 Analyses
 
+Run the automated test suite anytime to verify all 30 questions:
+
 ```bash
 python test_analysis.py
 ```
 
 Expected output:
 ```
-All 30 analyses passed.
+All 30 analyses, tables, texts, and visualizations passed successfully!
 ```
+
+---
+
+## 🌐 Kaggle Upload Guide
+
+This dataset and codebase are fully configured for Kaggle:
+
+1. **Via Kaggle Web UI:**
+   - Go to [Kaggle New Dataset](https://www.kaggle.com/datasets/new).
+   - Drag and drop `netflix_customer_churn.csv`.
+   - Title: **Netflix Customer Churn & Engagement Analytics**.
+   - Copy content from [`DATASET_CARD.md`](file:///DATASET_CARD.md) into the description.
+2. **Via Kaggle CLI:**
+   ```bash
+   kaggle datasets create -p .
+   ```
 
 ---
 
 ## 🛠️ Tech Stack
 
 | Technology | Purpose |
-|------------|---------|
-| **Streamlit** | Interactive web dashboard |
-| **Pandas** | Data manipulation & analysis |
-| **NumPy** | Numerical computations |
-| **Matplotlib** | Data visualization & charts |
+|---|---|
+| **Streamlit** | Executive dark-themed interactive web dashboard |
+| **Plotly** | Dynamic world choropleth map & interactive cards |
+| **Pandas** | High-performance data manipulation & aggregation |
+| **NumPy** | Statistical array benchmarks |
+| **Matplotlib** | Visual charting for business question validation |
 
 ---
 
 ## 📝 License
 
-This project is for educational purposes.
+This project and dataset are published under the **CC0 1.0 Universal (Public Domain)** license. Feel free to use, modify, and distribute for any educational, personal, or commercial portfolio project.
+

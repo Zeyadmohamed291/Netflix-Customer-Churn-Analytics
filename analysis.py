@@ -221,9 +221,7 @@ def clean_data(data: pd.DataFrame) -> pd.DataFrame:
     if missing_columns:
         raise ValueError("Missing columns: " + ", ".join(missing_columns))
 
-    df = data[EXPECTED_COLUMNS].copy()
-    df = df.drop_duplicates()
-    df = df.dropna()
+    df = data.loc[:, EXPECTED_COLUMNS].copy().drop_duplicates().dropna()
 
     numeric_columns = [
         "age",
@@ -235,10 +233,10 @@ def clean_data(data: pd.DataFrame) -> pd.DataFrame:
         "avg_watch_time_per_day",
     ]
     for column in numeric_columns:
-        df[column] = pd.to_numeric(df[column], errors="coerce")
+        df.loc[:, column] = pd.to_numeric(df[column], errors="coerce")
 
-    df = df.dropna()
-    df["churned"] = df["churned"].astype(int)
+    df = df.dropna().copy()
+    df.loc[:, "churned"] = df["churned"].astype(int)
     return df
 
 
@@ -252,7 +250,7 @@ def run_question(df: pd.DataFrame, number: int) -> Any:
     if number == 2:
         return float(np.mean(df["watch_hours"]))
     if number == 3:
-        return df.sort_values("watch_hours", ascending=False).head(10)[
+        return df.sort_values("watch_hours", ascending= False).head(10)[
             ["customer_id", "subscription_type", "watch_hours"]
         ]
     if number == 4:
@@ -326,7 +324,9 @@ def result_table(result: Any, number: int) -> pd.DataFrame:
     if isinstance(result, pd.Series):
         table = result.rename("value").reset_index()
         if number in (26, 27, 28):
-            table["churned"] = table["churned"].map({0: "Active", 1: "Churned"})
+            table = table.assign(
+                churned=table["churned"].astype(str).map({"0": "Active", "1": "Churned"})
+            )
         if number == 29:
             table.columns = ["region", "subscription_type", "value"]
         return table
@@ -353,27 +353,32 @@ def main_result_text(result: Any, number: int) -> str:
     if isinstance(result, pd.Series):
         top_label = result.index[0]
         top_value = result.iloc[0]
-        if isinstance(top_label, tuple):
+        if number in (26, 27):
+            top_label = "Active (Non-churned)" if top_label == 0 else "Churned"
+        elif isinstance(top_label, tuple):
             top_label = " + ".join(str(value) for value in top_label)
         suffix = "%" if number in range(20, 26) else ""
-        return f"Top result: {top_label} — {top_value:,.2f}{suffix}"
+        unit = " hours" if number == 26 else (" days" if number == 27 else "")
+        return f"Top result: {top_label} — {top_value:,.2f}{suffix}{unit}"
     return "The analysis was completed successfully."
 
 
 def create_question_figure(df: pd.DataFrame, number: int, result: Any):
     """Create a simple Matplotlib figure for the selected question."""
     red = "#E50914"
-    navy = "#132238"
-    blue = "#2563EB"
-    green = "#16A34A"
-    colors = [red, blue, green, "#7C3AED", "#F59E0B", "#0EA5E9", "#EC4899"]
+    navy = "#0D1018"
+    crimson = "#B20710"
+    silver = "#CBD5E1"
+    blue = "#3B82F6"
+    green = "#22C55E"
+    colors = ["#E50914", "#B20710", "#FFFFFF", "#CBD5E1", "#94A3B8", "#64748B", "#475569"]
 
-    fig, ax = plt.subplots(figsize=(9, 4.8))
-    fig.patch.set_facecolor("none")
-    ax.set_facecolor("none")
-    text_color = "#F8FAFC"
+    fig, ax = plt.subplots(figsize=(9, 4.6))
+    fig.patch.set_facecolor("#0D1018")
+    ax.set_facecolor("#0D1018")
+    text_color = "#FFFFFF"
     muted_color = "#94A3B8"
-    grid_color = "#334155"
+    grid_color = "#1E2434"
 
     if number == 1:
         ax.hist(df["age"], bins=12, color=red, edgecolor="#0B0E14")

@@ -1,0 +1,19 @@
+{
+  "title": "Netflix Customer Churn & Engagement Analytics",
+  "id": "zeyadmohamed/netflix-customer-churn-analytics",
+  "licenses": [
+    {
+      "name": "CC0-1.0"
+    }
+  ],
+  "keywords": [
+    "netflix",
+    "customer-churn",
+    "churn-prediction",
+    "streaming-service",
+    "eda",
+    "business-intelligence",
+    "streamlit",
+    "classification"
+  ]
+}
