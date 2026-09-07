@@ -8,11 +8,11 @@
 ![Pandas](https://img.shields.io/badge/Pandas-2.2-150458?style=for-the-badge&logo=pandas&logoColor=white)
 ![Matplotlib](https://img.shields.io/badge/Matplotlib-3.10-11557C?style=for-the-badge&logo=python&logoColor=white)
 [![Kaggle Dataset](https://img.shields.io/badge/Kaggle-Gold_10.0-20BEFF?style=for-the-badge&logo=kaggle&logoColor=white)](https://www.kaggle.com/datasets/zeyadmohamed26/netflix-customer-churn-and-engagement-analytics)
-[![Live Demo](https://img.shields.io/badge/Live_Dashboard-Streamlit_Cloud-E50914?style=for-the-badge&logo=netflix&logoColor=white)](https://netflix-customer-churn-analytics-nm53kpy7xfqu4usyxlutym.streamlit.app)
+[![Live Demo](https://img.shields.io/badge/Live_Dashboard-Streamlit_Cloud-E50914?style=for-the-badge&logo=netflix&logoColor=white)](https://netflix-customer-churn-analytics-nm53kpy7xfqu4usyxlufym.streamlit.app)
 
 **A professional, dark-themed interactive dashboard and analytical suite for exploring Netflix customer churn data — featuring 30 business questions with full code, results, Plotly visualizations, and a publication-ready Kaggle dataset card.**
 
-👉 **[Launch Live Dashboard](https://netflix-customer-churn-analytics-nm53kpy7xfqu4usyxlutym.streamlit.app)** 👈
+👉 **[Launch Live Dashboard](https://netflix-customer-churn-analytics-nm53kpy7xfqu4usyxlufym.streamlit.app)** 👈
 
 </div>
 
